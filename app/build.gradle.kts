@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace = "com.famisalud.famisalud"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.famisalud.famisalud"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -46,4 +46,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.22"))
+
 }
