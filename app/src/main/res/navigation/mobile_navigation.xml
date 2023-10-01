@@ -8,18 +8,30 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.famisalud.famisalud.ui.home.HomeFragment"
-        android:label="@string/title_home"
+        android:label="@string/inicio"
         tools:layout="@layout/fragment_home" />
-
+<!--
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.famisalud.famisalud.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
-
+-->
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.famisalud.famisalud.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/notificacion"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.famisalud.famisalud.ui.profile.ProfileFragment"
+        android:label="@string/perfil"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_drugstore"
+        android:name="com.famisalud.famisalud.ui.drugstore.DrugstoreFragment"
+        android:label="@string/farmacia"
+        tools:layout="@layout/fragment_drugstore" />
 </navigation>
