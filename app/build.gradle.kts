@@ -50,4 +50,9 @@ dependencies {
 
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.22"))
 
+    //  Dependencia para el Slider
+    //  Documentación de la libreria para que puedan configurar el Carrusel
+    //  https://github.com/denzcoskun/ImageSlideshow
+    implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
+
 }
