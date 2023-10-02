@@ -33,7 +33,7 @@ public class HomeFragment extends Fragment {
       final TextView textView = binding.textHome;
       homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
-      viewModel = new HomeViewModel();
+      //viewModel = new HomeViewModel();
       setupUI();
       return root;
    }
