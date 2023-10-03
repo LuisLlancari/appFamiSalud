@@ -43,10 +43,16 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation("androidx.navigation:navigation-fragment:2.7.3")
     implementation("androidx.navigation:navigation-ui:2.7.3")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.22"))
+
+    //  Dependencia para el Slider
+    //  Documentación de la libreria para que puedan configurar el Carrusel
+    //  https://github.com/denzcoskun/ImageSlideshow
+    implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
 
 }

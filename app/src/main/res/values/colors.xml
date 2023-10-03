@@ -7,14 +7,4 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
-    <!-- COLORES DE FAMISALUD-->
-    <color name="azul_famisalud_primario">#0056B4</color>
-    <color name="amarillo_famisalud_primario">#F6C500</color>
-
-    <color name="color_famisalud_secundario_1">#0071CE</color>
-    <color name="color_famisalud_secundario_2">#548CBE</color>
-
-    <color name="color_fondo">#E5E8EF</color>
-
 </resources>
