@@ -34,4 +34,11 @@
         android:name="com.famisalud.famisalud.ui.drugstore.DrugstoreFragment"
         android:label="@string/farmacia"
         tools:layout="@layout/fragment_drugstore" />
+
+    <fragment
+        android:id="@+id/navigation_famicard"
+        android:name="com.famisalud.famisalud.ui.Famicard.FamicardFragment"
+        android:label="@string/famicard"
+        tools:layout="@layout/fragment_famicard"
+        />
 </navigation>
