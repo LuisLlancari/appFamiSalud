@@ -20,4 +20,9 @@
 
     <color name="boton_fecha">#FF5733</color>
 
+    <color name="backgroud">#E8E8E9</color>
+    <color name="purple">#5E3BEE</color>
+    <color name="dark_blue">#1E4368</color>
+    <color name="grey">#E8E6F5</color>
+
 </resources>
