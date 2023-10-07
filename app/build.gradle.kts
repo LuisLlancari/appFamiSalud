@@ -55,6 +55,6 @@ dependencies {
     //  Documentación de la libreria para que puedan configurar el Carrusel
     //  https://github.com/denzcoskun/ImageSlideshow
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
-    implementation ("com.airbnb.android:lottie:3.8.0")
+    //implementation ("com.airbnb.android:lottie:3.8.0")
 
 }

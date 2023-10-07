@@ -40,45 +40,48 @@
 
 
                 <LinearLayout
+                    android:id="@+id/Lncategoria1"
                     android:layout_width="0dp"
                     android:layout_marginTop="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
                     android:orientation="vertical">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/white_background">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/Climg1"
+                            android:layout_width="match_parent"
+                            android:layout_height="79dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="0dp"
+                            android:background="@drawable/white_background">
 
-                        <ImageView
-                            android:id="@+id/imagenCategoria1"
+                            <ImageView
+                                android:id="@+id/imagenCategoria1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/white_background"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/btn_1" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <TextView
+                            android:id="@+id/tvCategoria1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/white_background"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/btn_1" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <TextView
-                        android:id="@+id/tvCategoria1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="8dp"
-                        android:text="Servicios"
-                        android:textAlignment="center"
-                        android:textColor="@color/dark_blue"
-                        android:textStyle="bold" />
+                            android:layout_gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:text="Servicios"
+                            android:textAlignment="center"
+                            android:textColor="@color/dark_blue"
+                            android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/LnCategoria2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
@@ -111,13 +114,14 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="8dp"
-                        android:text="Consulta"
+                        android:text="Especialidades"
                         android:textAlignment="center"
                         android:textColor="@color/dark_blue"
                         android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/Lncategoria3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
