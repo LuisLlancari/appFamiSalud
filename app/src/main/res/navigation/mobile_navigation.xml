@@ -29,9 +29,11 @@
         android:label="@string/perfil"
         tools:layout="@layout/fragment_profile" />
 
-    <fragment
-        android:id="@+id/navigation_drugstore"
-        android:name="com.famisalud.famisalud.ui.drugstore.DrugstoreFragment"
-        android:label="@string/farmacia"
-        tools:layout="@layout/fragment_drugstore" />
+    <!--
+        <fragment
+            android:id="@+id/navigation_drugstore"
+            android:name="com.famisalud.famisalud.ui.drugstore.DrugstoreFragment"
+            android:label="@string/farmacia"
+            tools:layout="@layout/fragment_drugstore" />
+    -->
 </navigation>

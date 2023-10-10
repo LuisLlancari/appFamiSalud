@@ -17,7 +17,7 @@ public class HomeViewModel extends ViewModel {
 
     public HomeViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Este es el fragmento de INICIO");
+        mText.setValue("bienvenido a Famisalud App");
     }
 
     public LiveData<String> getText() {
