@@ -19,6 +19,9 @@
         android:theme="@style/Theme.FamiSalud"
         tools:targetApi="31">
         <activity
+            android:name=".Especialidad"
+            android:exported="false" />
+        <activity
             android:name=".Servicios"
             android:exported="false" />
         <activity
