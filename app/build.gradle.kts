@@ -1,5 +1,9 @@
 plugins {
     id("com.android.application")
+
+    // Add the dependency for the Google services Gradle plugin
+    id("com.google.gms.google-services")
+
 }
 
 android {
@@ -54,7 +58,20 @@ dependencies {
     //  Dependencia para el Slider
     //  Documentación de la libreria para que puedan configurar el Carrusel
     //  https://github.com/denzcoskun/ImageSlideshow
-    implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
+    implementation("com.github.denzcoskun:ImageSlideshow:0.1.2")
     //implementation ("com.airbnb.android:lottie:3.8.0")
+
+    // Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
+
+    // TODO: Add the dependencies for Firebase products you want to use
+    // When using the BoM, don't specify versions in Firebase dependencies
+    implementation("com.google.firebase:firebase-analytics")
+
+
+    // Add the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-auth")
+
 
 }

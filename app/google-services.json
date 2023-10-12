@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "464949190729",
+    "project_id": "famisalud-b32a8",
+    "storage_bucket": "famisalud-b32a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464949190729:android:a3a36d2aeed82d96fadf98",
+        "android_client_info": {
+          "package_name": "com.famisalud.famisalud"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_aJroTWQckqYeGK3Y71I7X2wZEskuGfI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
