@@ -110,7 +110,7 @@
                         android:layout_marginStart="80dp"
                         android:layout_marginEnd="80dp"
                         android:layout_weight="1"
-                        android:text="Este es un ejemplo 4" />
+                        android:text="Este es un ejemplo 2" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -147,7 +147,7 @@
                         android:layout_marginStart="80dp"
                         android:layout_marginEnd="80dp"
                         android:layout_weight="1"
-                        android:text="Este es un ejemplo 4" />
+                        android:text="Este es un ejemplo 3" />
                 </LinearLayout>
 
             </LinearLayout>
