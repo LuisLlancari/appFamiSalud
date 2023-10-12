@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Especialidad extends AppCompatActivity {
+public class FormularioRegistro extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_especialidad);
+        setContentView(R.layout.activity_formulario_registro);
     }
 }

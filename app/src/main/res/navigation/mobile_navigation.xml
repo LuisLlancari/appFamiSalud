@@ -10,13 +10,13 @@
         android:name="com.famisalud.famisalud.ui.home.HomeFragment"
         android:label="@string/inicio"
         tools:layout="@layout/fragment_home" />
-
+<!--
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.famisalud.famisalud.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
-
+-->
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.famisalud.famisalud.ui.notifications.NotificationsFragment"
@@ -29,16 +29,11 @@
         android:label="@string/perfil"
         tools:layout="@layout/fragment_profile" />
 
-    <fragment
-        android:id="@+id/navigation_drugstore"
-        android:name="com.famisalud.famisalud.ui.drugstore.DrugstoreFragment"
-        android:label="@string/farmacia"
-        tools:layout="@layout/fragment_drugstore" />
 
-    <fragment
-        android:id="@+id/navigation_famicard"
-        android:name="com.famisalud.famisalud.ui.Famicard.FamicardFragment"
-        android:label="@string/famicard"
-        tools:layout="@layout/fragment_famicard"
-        />
+        <fragment
+            android:id="@+id/navigation_drugstore"
+            android:name="com.famisalud.famisalud.ui.drugstore.DrugstoreFragment"
+            android:label="@string/farmacia"
+            tools:layout="@layout/fragment_drugstore" />
+
 </navigation>
