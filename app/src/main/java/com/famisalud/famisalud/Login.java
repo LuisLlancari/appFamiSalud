@@ -32,6 +32,7 @@ public class Login extends AppCompatActivity {
       super.onCreate(savedInstanceState);
       FirebaseApp.initializeApp(this); // Inicializar Firebase
       setContentView(R.layout.activity_login);
+      getSupportActionBar().hide();
 
       loadUI();
       checkUserAuthentication();

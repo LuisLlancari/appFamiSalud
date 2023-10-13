@@ -1,6 +1,7 @@
 package com.famisalud.famisalud;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.famisalud.famisalud.databinding.ActivityMainBinding;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,6 +39,14 @@ Button btcerrarSession;
       getSupportActionBar().hide();
       binding = ActivityMainBinding.inflate(getLayoutInflater());
       setContentView(binding.getRoot());
+      FloatingActionButton fabDial = findViewById(R.id.fabDial);
+      fabDial.setOnClickListener(v -> {
+         String phoneNumber = "987654321";
+
+         Intent intent = new Intent(Intent.ACTION_DIAL);
+         intent.setData(Uri.parse("tel:" + 987654321));
+         startActivity(intent);
+      });
 
       loadUI();
       checkUserAuthentication(); // Verificar el estado de autenticación del usuario
