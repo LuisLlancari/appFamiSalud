@@ -22,7 +22,8 @@ public class Login extends AppCompatActivity {
 
    private TextView registraseActivity;
    private TextInputEditText etUsuario, etContrasena;
-   private Button btIniciarSesion, btRegistrarse;
+   private Button btIniciarSesion;
+//   private Button btRegistrarse;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -39,38 +40,38 @@ public class Login extends AppCompatActivity {
       bundle.putString("message", "Integración de Firebase completa");
       analytics.logEvent("InitScreen", bundle);
 
-      registraseActivity.setOnClickListener(v -> showToast("próximamente"));
+      registraseActivity.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Register.class)));
 
       setup();
    }
 
    private void setup() {
-      btRegistrarse.setOnClickListener(v -> {
-         String email = etUsuario.getText().toString();
-         String password = etContrasena.getText().toString();
-
-         if (!email.isEmpty() && !password.isEmpty()) {
-            if (isValidEmail(email)) {
-               FirebaseAuth.getInstance()
-                   .createUserWithEmailAndPassword(email, password)
-                   .addOnCompleteListener(task -> {
-                      if (task.isSuccessful()) {
-                         // Éxito en la creación del usuario
-                         showModel(email, ProviderType.BASIC);
-                         clearFields();
-                      } else {
-                         showAlert("Se ha producido un error de autenticación al usuario");
-                      }
-                   });
-            } else {
-               // Muestra una alerta indicando que el correo electrónico no es válido
-               showToast("Por favor, ingresa un correo electrónico válido.");
-            }
-         } else {
-            // Muestra una alerta indicando que los campos están vacíos
-            showToast("Por favor, completa ambos campos.");
-         }
-      });
+//      btRegistrarse.setOnClickListener(v -> {
+//         String email = etUsuario.getText().toString();
+//         String password = etContrasena.getText().toString();
+//
+//         if (!email.isEmpty() && !password.isEmpty()) {
+//            if (isValidEmail(email)) {
+//               FirebaseAuth.getInstance()
+//                   .createUserWithEmailAndPassword(email, password)
+//                   .addOnCompleteListener(task -> {
+//                      if (task.isSuccessful()) {
+//                         // Éxito en la creación del usuario
+//                         showModel(email, ProviderType.BASIC);
+//                         clearFields();
+//                      } else {
+//                         showAlert("Se ha producido un error de autenticación al usuario");
+//                      }
+//                   });
+//            } else {
+//               // Muestra una alerta indicando que el correo electrónico no es válido
+//               showToast("Por favor, ingresa un correo electrónico válido.");
+//            }
+//         } else {
+//            // Muestra una alerta indicando que los campos están vacíos
+//            showToast("Por favor, completa ambos campos.");
+//         }
+//      });
 
       btIniciarSesion.setOnClickListener(v -> {
          String email = etUsuario.getText().toString();
@@ -134,7 +135,7 @@ public class Login extends AppCompatActivity {
       etUsuario = findViewById(R.id.usuarioEditText);
 
       btIniciarSesion = findViewById(R.id.iniciarSessionButtom);
-      btRegistrarse = findViewById(R.id.registrarseButtom);
+//      btRegistrarse = findViewById(R.id.registrarseButtom);
 
       registraseActivity = findViewById(R.id.tvRegistrarseActivity);
    }

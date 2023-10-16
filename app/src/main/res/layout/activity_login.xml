@@ -137,17 +137,17 @@
             android:textSize="25dp"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/registrarseButtom"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/black"
-            android:text="Registrarse"
-            android:textColor="@color/white"
-            android:textSize="25dp"
-            android:textStyle="bold" />
+<!--        <Button-->
+<!--            android:id="@+id/registrarseButtom"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:backgroundTint="@color/black"-->
+<!--            android:text="Registrarse"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="25dp"-->
+<!--            android:textStyle="bold" />-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -160,7 +160,7 @@
                 android:id="@+id/tvReg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No tienes una cuenta? "
+                android:text="¿No tienes una cuenta? "
                 android:textColor="@color/white"
                 android:textSize="18dp" />
 
