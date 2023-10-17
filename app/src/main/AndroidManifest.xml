@@ -23,7 +23,7 @@
             android:name=".Especialidad"
             android:exported="false" />
         <activity
-            android:name=".Servicios"
+            android:name=".Login"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -32,7 +32,7 @@
             android:name=".Famicard"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".Servicios"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
