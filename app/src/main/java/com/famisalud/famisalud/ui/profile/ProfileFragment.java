@@ -1,14 +1,20 @@
-package com.famisalud.famisalud.ui.profile;//package com.famisalud.famisalud.ui.profile;
+package com.famisalud.famisalud.ui.profile;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import com.famisalud.famisalud.databinding.FragmentProfileBinding; // Importa la clase de vinculación generada
+
+import com.famisalud.famisalud.databinding.FragmentProfileBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -16,59 +22,150 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 public class ProfileFragment extends Fragment {
-
+   private static final int IMAGE_PICK = 1;
    private ProfileViewModel viewModel;
-   private FragmentProfileBinding binding; // Declara una variable de vinculación
+   private FragmentProfileBinding binding;
+   private StorageReference profileImagesRef;
+   private String uid;
+
+   private String downloadUrl;
+
 
    @Override
    public View onCreateView(@NonNull LayoutInflater inflater,
                             @Nullable ViewGroup container,
                             @Nullable Bundle savedInstanceState) {
-
-      binding = FragmentProfileBinding.inflate(inflater, container, false); // Infla la vista usando View Binding
-      View rootView = binding.getRoot(); // Accede a la vista raíz a través del objeto de vinculación
+      binding = FragmentProfileBinding.inflate(inflater, container, false);
+      View rootView = binding.getRoot();
 
       viewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
 
-      // Configurar el evento de cierre de sesión
       binding.btCerrarSession.setOnClickListener(v -> {
          viewModel.signOutAndNavigateToLogin(requireActivity());
       });
 
-      // Recuperar el usuario actualmente autenticado
       FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-      String uid = currentUser.getUid();
 
       if (currentUser != null) {
-         // Obtener la referencia a la base de datos de Firebase
-         DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference();
+         uid = currentUser.getUid();
 
-         // Construir la ruta para obtener el nombre del usuario
+         // Inicialización de Firebase Storage
+         FirebaseStorage storage = FirebaseStorage.getInstance();
+         StorageReference storageRef = storage.getReference();
+
+         // Obtener una referencia a la ubicación donde se guardará la imagen
+         profileImagesRef = storageRef.child("profile_images/" + uid + ".jpg");
+
+         binding.btnUploadImage.setOnClickListener(v -> {
+            // Abre un selector de imágenes para el usuario
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.setType("image/*");
+            startActivityForResult(intent, IMAGE_PICK);
+         });
+
+         // Cargar la imagen del usuario desde el ViewModel
+         viewModel.getImageUrl().observe(getViewLifecycleOwner(), imageUrl -> {
+            if (imageUrl != null) {
+               // Cargar la imagen en el ImageView
+               Picasso.get().load(imageUrl).into(binding.ivProfileImage);
+            }
+         });
+
+
+         DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference();
          String userNodePath = "users/" + uid + "/nombre";
 
-         // Agregar un oyente de datos para recuperar el nombre
          databaseRef.child(userNodePath).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                if (dataSnapshot.exists()) {
                   String nombreUsuario = dataSnapshot.getValue(String.class);
                   if (nombreUsuario != null) {
-                     // Mostrar el saludo personalizado
                      binding.tvSaludo.setText("Hola, " + nombreUsuario);
                   }
+
+//                  String imageUrl = viewModel.getImageUrl().getValue();
+//                  if (imageUrl != null) {
+//                     // Cargar la imagen en el ImageView
+//                     Picasso.get().load(imageUrl).into(binding.ivProfileImage);
+//                  }
                }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                // Manejar errores si es necesario
+               Toast.makeText(requireContext(), "Error al obtener el nombre: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
          });
       }
+
       return rootView;
    }
+
+
+   @Override
+   public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+      super.onActivityResult(requestCode, resultCode, data);
+
+      if (requestCode == IMAGE_PICK && resultCode == -1) {
+         if (data != null) {
+            // Aquí puedes manejar la imagen seleccionada por el usuario
+            Uri imageUri = data.getData();
+
+            if (imageUri != null && profileImagesRef != null) {
+               // Sube la imagen a Firebase Storage usando la referencia existente
+               profileImagesRef.putFile(imageUri)
+                   .addOnSuccessListener(taskSnapshot -> {
+                      // Imagen subida con éxito, ahora obtén la URL de descarga
+                      profileImagesRef.getDownloadUrl().addOnSuccessListener(uri -> {
+                         String downloadUrl = uri.toString();
+
+                         // Guarda la URL en Realtime Database
+                         DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference();
+                         String userImageURLPath = "users/" + uid + "/imagenURL";
+
+                         databaseRef.child(userImageURLPath).setValue(downloadUrl)
+                             .addOnSuccessListener(aVoid -> {
+                                // URL de la imagen guardada con éxito
+                                // Puedes mostrar un mensaje al usuario aquí
+                                Toast.makeText(requireContext(), "Imagen de perfil actualizada", Toast.LENGTH_SHORT).show();
+
+                                // Carga la imagen en el ImageView
+                                Picasso.get().load(downloadUrl).into(binding.ivProfileImage);
+
+                                // Actualizar la URL de la imagen en el ViewModel
+                                viewModel.setImageUrl(downloadUrl);
+                             })
+                             .addOnFailureListener(e -> {
+                                // Manejar errores al guardar la URL en Realtime Database
+                                Toast.makeText(requireContext(), "Error al guardar la URL de la imagen: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                             });
+                      });
+                   })
+                   .addOnFailureListener(e -> {
+                      // Manejar errores al subir la imagen
+                      Toast.makeText(requireContext(), "Error al subir la imagen: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                   });
+            }
+         }
+      }
+   }
+
+
+//   @Override
+//   public void onResume() {
+//      super.onResume();
+//      // Cargar la imagen en el ImageView si downloadUrl no es nulo
+//      if (downloadUrl != null) {
+//         Log.d("ProfileFragment", "downloadUrl: " + downloadUrl);
+//      }
+//
+//   }
 
 }
