@@ -28,7 +28,6 @@ enum ProviderType{
 
 public class MainActivity extends AppCompatActivity {
 
-Button btcerrarSession;
 
    private ActivityMainBinding binding;
 
@@ -39,7 +38,9 @@ Button btcerrarSession;
       getSupportActionBar().hide();
       binding = ActivityMainBinding.inflate(getLayoutInflater());
       setContentView(binding.getRoot());
+
       FloatingActionButton fabDial = findViewById(R.id.fabDial);
+
       fabDial.setOnClickListener(v -> {
          String phoneNumber = "987654321";
 
@@ -66,18 +67,11 @@ Button btcerrarSession;
    }
 
    private void setup(String email, String provider) {
-//      setTitle("Inicio");
-      btcerrarSession.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View v) {
-            FirebaseAuth.getInstance().signOut();
-            onBackPressed();
-         }
-      });
+
    }
 
    private void loadUI() {
-      btcerrarSession = findViewById(R.id.btCerarSession);
+
    }
 
    // ... (Métodos de ayuda y otros)
@@ -98,5 +92,3 @@ Button btcerrarSession;
    }
 
 }
-
-//esto es un comentario

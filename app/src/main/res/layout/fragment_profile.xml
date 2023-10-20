@@ -13,14 +13,22 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="5dp" />
+            android:layout_height="100dp" />
 
         <Button
-            android:id="@+id/btlogin"
+            android:id="@+id/btCerrarSession"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center_vertical"
             android:text="Cerrar Sesion" />
+
+        <TextView
+            android:id="@+id/tvSaludo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:textColor="#000" />
     </LinearLayout>
 
 </FrameLayout>

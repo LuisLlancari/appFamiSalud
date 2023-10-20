@@ -54,6 +54,9 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation ("com.google.android.material:material:1.4.0")
 
+    implementation ("androidx.lifecycle:lifecycle-viewmodel:2.2.0")
+
+
 
 
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.22"))
@@ -70,11 +73,15 @@ dependencies {
     // TODO: Add the dependencies for Firebase products you want to use
     // When using the BoM, don't specify versions in Firebase dependencies
     implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-database")
+
 
 
     // Add the dependency for the Firebase Authentication library
     // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-firestore:24.8.1")
     implementation("com.google.firebase:firebase-auth")
+
 
 
 }
