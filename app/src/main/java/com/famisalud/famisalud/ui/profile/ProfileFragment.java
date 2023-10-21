@@ -61,6 +61,9 @@ public class ProfileFragment extends Fragment {
          // Obtener una referencia a la ubicación donde se guardará la imagen
          profileImagesRef = storageRef.child("profile_images/" + uid + ".jpg");
 
+         // Cargar la imagen del usuario desde Firebase Storage
+         loadProfileImageFromFirebaseStorage();
+         
          binding.btnUploadImage.setOnClickListener(v -> {
             // Abre un selector de imágenes para el usuario
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -106,6 +109,21 @@ public class ProfileFragment extends Fragment {
       }
 
       return rootView;
+   }
+
+   private void loadProfileImageFromFirebaseStorage() {
+      profileImagesRef.getDownloadUrl().addOnSuccessListener(uri -> {
+         String downloadUrl = uri.toString();
+
+         // Cargar la imagen en el ImageView
+         Picasso.get().load(downloadUrl).into(binding.ivProfileImage);
+
+         // Actualizar la URL de la imagen en el ViewModel si es necesario
+         viewModel.setImageUrl(downloadUrl);
+      }).addOnFailureListener(e -> {
+         // Manejar errores al obtener la URL de la imagen desde Firebase Storage
+         Log.e("ProfileFragment", "Error al obtener la URL de la imagen: " + e.getMessage());
+      });
    }
 
 
