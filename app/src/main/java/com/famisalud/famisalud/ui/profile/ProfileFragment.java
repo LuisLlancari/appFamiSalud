@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -112,6 +113,10 @@ public class ProfileFragment extends Fragment {
    }
 
    private void loadProfileImageFromFirebaseStorage() {
+      ProgressBar progressBar = binding.progressBar; // Obtén la referencia al ProgressBar desde el layout
+
+      progressBar.setVisibility(View.VISIBLE); // Muestra el ProgressBar mientras se carga la imagen
+
       profileImagesRef.getDownloadUrl().addOnSuccessListener(uri -> {
          String downloadUrl = uri.toString();
 
@@ -120,11 +125,15 @@ public class ProfileFragment extends Fragment {
 
          // Actualizar la URL de la imagen en el ViewModel si es necesario
          viewModel.setImageUrl(downloadUrl);
+
+         progressBar.setVisibility(View.GONE); // Oculta el ProgressBar una vez que se haya cargado la imagen
       }).addOnFailureListener(e -> {
          // Manejar errores al obtener la URL de la imagen desde Firebase Storage
          Log.e("ProfileFragment", "Error al obtener la URL de la imagen: " + e.getMessage());
+         progressBar.setVisibility(View.GONE); // Asegúrate de que el ProgressBar se oculte en caso de error
       });
    }
+
 
 
    @Override
@@ -174,16 +183,5 @@ public class ProfileFragment extends Fragment {
          }
       }
    }
-
-
-//   @Override
-//   public void onResume() {
-//      super.onResume();
-//      // Cargar la imagen en el ImageView si downloadUrl no es nulo
-//      if (downloadUrl != null) {
-//         Log.d("ProfileFragment", "downloadUrl: " + downloadUrl);
-//      }
-//
-//   }
 
 }
