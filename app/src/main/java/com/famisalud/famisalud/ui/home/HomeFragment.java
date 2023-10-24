@@ -84,6 +84,7 @@
 
 package com.famisalud.famisalud.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -101,6 +102,7 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.famisalud.famisalud.R;
 import com.famisalud.famisalud.databinding.FragmentHomeBinding;
+import com.famisalud.famisalud.sedelist;
 
 import java.util.List;
 
@@ -123,6 +125,9 @@ public class HomeFragment extends Fragment {
       //viewModel = new HomeViewModel();
       setupCardViews(root); // Pasa la vista 'root' como argumento
       setupUI();
+
+      binding.btnIrReciclerView.setOnClickListener(v -> startActivity(new Intent(requireContext(), sedelist.class)));
+
       return root;
    }
 

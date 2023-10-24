@@ -31,8 +31,11 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Correo..."
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/black"
         app:helperText="* Aquí tu correo"
-        android:hint="Correo...">
+        app:helperTextTextColor="@color/black">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tietCorreoRegistrar"
@@ -46,6 +49,8 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/black"
 
         android:hint="Nombre...">
 
@@ -64,10 +69,13 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:hint="Telefono..."
+        android:textColorHint="@color/black"
+
+        app:boxStrokeColor="@color/black"
         app:counterEnabled="true"
-        app:counterMaxLength="9">
+        app:counterMaxLength="9"
+        app:counterTextColor="@color/black">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tietTelfonoRegistrar"
@@ -85,14 +93,22 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/black"
+
+        app:boxStrokeColor="@color/black"
         app:counterEnabled="true"
-        app:endIconMode="password_toggle">
+        app:counterTextColor="@color/black"
+        app:endIconMode="password_toggle"
+        app:helperTextTextColor="@color/black"
+        app:passwordToggleTint="@color/black"
+        app:prefixTextColor="@color/black">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tietRegistrarContraseña"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Contraseña..."
-            android:inputType="textPassword"/>
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -100,7 +116,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Registrarme"
-        android:textStyle="bold"/>
+        android:textColor="@color/white"
+        android:textStyle="bold" />
     <Space
         android:layout_width="match_parent"
         android:layout_height="50dp"/>
@@ -110,10 +127,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="¿Ya tienes una cuenta?"/>
+            android:text="¿Ya tienes una cuenta?"
+            android:textColor="@color/black" />
 
         <Space
             android:layout_width="10dp"

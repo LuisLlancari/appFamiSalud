@@ -35,15 +35,18 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="35dp"
+            android:textColorHint="@color/black"
             >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/usuarioEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:background="@drawable/styles_text"
-                android:inputType="textWebEmailAddress"
                 android:hint="Correo"
+                android:inputType="textWebEmailAddress"
+                android:textColor="@color/black"
                 android:textSize="20sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -53,6 +56,7 @@
             android:id="@+id/passwordInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="@color/black"
             app:endIconMode="password_toggle">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -62,6 +66,7 @@
                 android:background="@drawable/styles_text"
                 android:hint="Contraseña"
                 android:inputType="textPassword"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 tools:paddingStart="15dp" />
 

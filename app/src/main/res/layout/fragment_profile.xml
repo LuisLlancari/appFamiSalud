@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.profile.ProfileFragment">
 
     <ScrollView
@@ -20,15 +21,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ProgressBar
-                    android:id="@+id/progressBar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:visibility="gone"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
 
                 <ImageView
                     android:id="@+id/ivProfileImage"
@@ -42,6 +34,15 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
                 <Button
                     android:id="@+id/btnUploadImage"
                     android:layout_width="wrap_content"
@@ -49,6 +50,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="16dp"
                     android:text="Subir Imagen de Perfil"
+                    android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -62,10 +64,11 @@
                     android:layout_marginTop="16dp"
                     android:text="Cargando..."
                     android:textAlignment="center"
+                    android:textColor="@color/black"
                     android:textSize="30sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/ivProfileImage"
+                    app:layout_constraintStart_toStartOf="@+id/ivProfileImage"
                     app:layout_constraintTop_toBottomOf="@+id/ivProfileImage" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -98,7 +101,8 @@
                         android:layout_weight="0.3333"
                         android:background="@drawable/grey_background"
                         android:elevation="5dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="60dp"
@@ -236,7 +240,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Change"
+                        android:text="Cambiar"
                         android:textAlignment="viewEnd"
                         android:textColor="#585858"
                         android:textSize="18sp" />
@@ -328,6 +332,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="70dp"
                 android:text="Cerrar Sesion"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <!--            <ProgressBar-->
