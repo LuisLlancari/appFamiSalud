@@ -31,6 +31,10 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".splash_intro"
+            android:exported="false" />
         <activity
             android:name=".Famicard"
             android:exported="false" />

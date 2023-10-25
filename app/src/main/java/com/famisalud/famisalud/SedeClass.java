@@ -1,10 +1,11 @@
 package com.famisalud.famisalud;
 
 public class SedeClass {
-   String sede, direccion, whatsapp, correo;
+   String sede, direccion, whatsapp, correo, url;
 
-   public void setSede(String sede) {
-      this.sede = sede;
+
+   public String getUrl() {
+      return url;
    }
 
    public String getSede() {
@@ -14,7 +15,6 @@ public class SedeClass {
    public String getDireccion() {
       return direccion;
    }
-
 
    public String getWhatsapp() {
       return whatsapp;
