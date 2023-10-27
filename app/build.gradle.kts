@@ -91,6 +91,12 @@ dependencies {
     annotationProcessor ("androidx.room:room-compiler:2.6.0")
     implementation ("androidx.cardview:cardview:1.0.0")
 
+    //  Documentación
+    //  https://github.com/bumptech/glide
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
+
+
 
 
 

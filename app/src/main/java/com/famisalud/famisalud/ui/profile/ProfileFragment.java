@@ -44,6 +44,7 @@ public class ProfileFragment extends Fragment {
       binding = FragmentProfileBinding.inflate(inflater, container, false);
       View rootView = binding.getRoot();
 
+
       viewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
 
       binding.btCerrarSession.setOnClickListener(v -> {
@@ -64,7 +65,7 @@ public class ProfileFragment extends Fragment {
 
          // Cargar la imagen del usuario desde Firebase Storage
          loadProfileImageFromFirebaseStorage();
-         
+
          binding.btnUploadImage.setOnClickListener(v -> {
             // Abre un selector de imágenes para el usuario
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -83,6 +84,7 @@ public class ProfileFragment extends Fragment {
 
          DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference();
          String userNodePath = "users/" + uid + "/nombre";
+         String telefonoPath = "users/" + uid + "/telefono";
 
          databaseRef.child(userNodePath).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -93,11 +95,6 @@ public class ProfileFragment extends Fragment {
                      binding.tvSaludo.setText("Hola, " + nombreUsuario);
                   }
 
-//                  String imageUrl = viewModel.getImageUrl().getValue();
-//                  if (imageUrl != null) {
-//                     // Cargar la imagen en el ImageView
-//                     Picasso.get().load(imageUrl).into(binding.ivProfileImage);
-//                  }
                }
             }
 
@@ -105,6 +102,22 @@ public class ProfileFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError databaseError) {
                // Manejar errores si es necesario
                Toast.makeText(requireContext(), "Error al obtener el nombre: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+         });
+         databaseRef.child(telefonoPath).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+               if (snapshot.exists()){
+                  String telefonoUsuario = snapshot.getValue(String.class);
+                  if (telefonoUsuario != null){
+                     binding.ivProfileCelular.setText(telefonoUsuario);
+                  }
+               }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+               // Handle database error (if any).
             }
          });
       }
@@ -133,7 +146,6 @@ public class ProfileFragment extends Fragment {
          progressBar.setVisibility(View.GONE); // Asegúrate de que el ProgressBar se oculte en caso de error
       });
    }
-
 
 
    @Override

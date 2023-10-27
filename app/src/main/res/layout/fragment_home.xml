@@ -7,13 +7,13 @@
     tools:context=".ui.home.HomeFragment">
 
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="60dp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="160dp" >
+        tools:layout_editor_absoluteY="160dp">
+
 
 
         <LinearLayout
@@ -30,6 +30,12 @@
                 android:layout_marginEnd="8dp"
                 android:textAlignment="center"
                 android:textSize="20sp" />
+            <Button
+                android:id="@+id/btnIrReciclerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Ir Recicle"/>
 
             <com.denzcoskun.imageslider.ImageSlider
                 android:id="@+id/image_slider"
@@ -40,14 +46,15 @@
                 android:layout_marginEnd="16dp"
                 app:iss_auto_cycle="true"
                 app:iss_delay="1000"
-                app:iss_period="3000"
+                app:iss_period="2000"
                 app:iss_text_align="CENTER">
 
             </com.denzcoskun.imageslider.ImageSlider>
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="30dp"/>
+                android:layout_height="30dp" />
+
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,8 +88,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="80dp"
                         android:layout_marginEnd="80dp"
-                        android:padding="60dp"
                         android:layout_weight="1"
+                        android:padding="60dp"
                         android:src="@drawable/medicinal" />
 
                     <TextView
@@ -95,7 +102,6 @@
                 </LinearLayout>
 
             </LinearLayout>
-
 
 
             <LinearLayout
