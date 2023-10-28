@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.os.Bundle;
 
 import com.google.firebase.database.DataSnapshot;
@@ -30,7 +31,11 @@ public class sedelist extends AppCompatActivity {
       recyclerView = findViewById(R.id.sedelist);
       database = FirebaseDatabase.getInstance().getReference("sedes");
       recyclerView.setHasFixedSize(true);
-      recyclerView.setLayoutManager(new LinearLayoutManager(this));
+      recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
+
+      // Agregar un espaciado entre elementos (ajusta el valor de spacing según tus necesidades)
+//      int spacing = getResources().getDimensionPixelSize(R.dimen.spacing_between_cardviews);
+//      recyclerView.addItemDecoration(new ItemSpacingDecoration(spacing));
 
       list = new ArrayList<>();
       myApapterSede = new MyApapterSede(this, list);
