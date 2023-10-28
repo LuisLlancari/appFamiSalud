@@ -8,12 +8,11 @@
 
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="60dp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="160dp">
-
 
 
         <LinearLayout
@@ -30,12 +29,6 @@
                 android:layout_marginEnd="8dp"
                 android:textAlignment="center"
                 android:textSize="20sp" />
-            <Button
-                android:id="@+id/btnIrReciclerView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="Ir Recicle"/>
 
             <com.denzcoskun.imageslider.ImageSlider
                 android:id="@+id/image_slider"
@@ -55,128 +48,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp" />
 
-            <HorizontalScrollView
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/metodosPagoList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <Button
+                android:id="@+id/btnIrReciclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scrollbars="none"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="Ir Recicle"
+                android:textAlignment="center"
+                tools:layout_editor_absoluteX="2dp"
+                tools:layout_editor_absoluteY="685dp" />
 
-                <LinearLayout
-                    android:id="@+id/cardContainer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal" />
-            </HorizontalScrollView>
-
-            <LinearLayout
+            <Button
+                android:id="@+id/btnDialog"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="40dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageButton
-                        android:id="@+id/imgPrimero"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="80dp"
-                        android:layout_marginEnd="80dp"
-                        android:layout_weight="1"
-                        android:padding="60dp"
-                        android:src="@drawable/medicinal" />
-
-                    <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:text="Este es un ejemplo 1" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="20dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/imgSegundo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="80dp"
-                        android:layout_marginEnd="80dp"
-                        android:layout_weight="1"
-                        android:padding="60dp"
-                        android:src="@drawable/medicinal" />
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="80dp"
-                        android:layout_marginEnd="80dp"
-                        android:layout_weight="1"
-                        android:text="Este es un ejemplo 2" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="20dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/imgTercero"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="80dp"
-                        android:layout_marginEnd="80dp"
-                        android:layout_weight="1"
-                        android:padding="60dp"
-                        android:src="@drawable/medicinal" />
-
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="80dp"
-                        android:layout_marginEnd="80dp"
-                        android:layout_weight="1"
-                        android:text="Este es un ejemplo 3" />
-                </LinearLayout>
-
-            </LinearLayout>
-
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="Dialog"
+                android:textAlignment="center"
+                app:layout_constraintTop_toBottomOf="@+id/btnIrReciclerView"
+                tools:layout_editor_absoluteX="2dp" />
         </LinearLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

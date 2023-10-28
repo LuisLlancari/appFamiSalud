@@ -96,11 +96,8 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
 
-
-
-
-
-
+    //  https://ourcodeworld.com/articles/read/928/how-to-use-sweet-alert-dialogs-in-android
+    implementation("com.github.f0ris.sweetalert:library:1.5.6")
 
 
 }

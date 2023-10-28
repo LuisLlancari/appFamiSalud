@@ -1,4 +1,4 @@
-package com.famisalud.famisalud;
+package com.famisalud.famisalud.Model;
 
 public class SedeClass {
    String sede, direccion, whatsapp, correo, url;
