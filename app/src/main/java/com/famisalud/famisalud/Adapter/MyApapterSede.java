@@ -54,7 +54,6 @@ public class MyApapterSede extends RecyclerView.Adapter<MyApapterSede.MyViewHold
       holder.direccion.setText(sede.getDireccion());
       holder.correo.setText(sede.getCorreo());
       holder.whatsapp.setText(sede.getWhatsapp());
-//      holder.urlImage.setText(sede.getUrl());
 
       // Carga la imagen usando Glide
       Glide.with(context)
