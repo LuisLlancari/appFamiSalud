@@ -1,94 +1,112 @@
 package com.famisalud.famisalud.ui.home;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.famisalud.famisalud.Adapter.MyAdapterMetodoPago;
+import com.famisalud.famisalud.Model.MetodoPagoClass;
 import com.famisalud.famisalud.databinding.FragmentHomeBinding;
 import com.famisalud.famisalud.sedelist;
-
-import java.util.List;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HomeFragment extends Fragment {
-
-   private HomeViewModel viewModel;
    private FragmentHomeBinding binding;
+   private RecyclerView recyclerView;
+   private DatabaseReference database;
+   private MyAdapterMetodoPago myAdapter;
+   private ArrayList<MetodoPagoClass> list;
 
-   public View onCreateView(@NonNull LayoutInflater inflater,
-                            ViewGroup container, Bundle savedInstanceState) {
-      HomeViewModel homeViewModel =
-          new ViewModelProvider(this).get(HomeViewModel.class);
-
+   @Override
+   public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+      HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
       binding = FragmentHomeBinding.inflate(inflater, container, false);
       View root = binding.getRoot();
-
       final TextView textView = binding.textHome;
       homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
-      //viewModel = new HomeViewModel();
-//      setupCardViews(root); // Pasa la vista 'root' como argumento
+      initializeViews();
+      setupRecyclerView();
       setupUI();
+      setupDialogButton();
+      setupRecyclerViewButton();
 
-      binding.btnDialog.setOnClickListener(v -> {
+      database.addValueEventListener(new ValueEventListener() {
+         @Override
+         public void onDataChange(@NonNull DataSnapshot snapshot) {
+            list.clear();
+            for(DataSnapshot dataSnapshot:snapshot.getChildren()){
+               MetodoPagoClass metodoPagoClass = dataSnapshot.getValue(MetodoPagoClass.class);
+               list.add(metodoPagoClass);
+            }
+            myAdapter.notifyDataSetChanged();
 
-         SweetAlertDialog dialog = new SweetAlertDialog(requireActivity(), SweetAlertDialog.SUCCESS_TYPE);
-         dialog.setTitleText("Exitoso");
-         dialog.show();
+         }
+
+         @Override
+         public void onCancelled(@NonNull DatabaseError error) {
+            handleDatabaseError(error);
+         }
       });
-
-      binding.btnIrReciclerView.setOnClickListener(v -> startActivity(new Intent(requireContext(), sedelist.class)));
 
       return root;
    }
 
-//   private void setupCardViews(View root) {
-//      // Obtén una referencia al LinearLayout que contiene los CardViews
-//      LinearLayout cardContainer = root.findViewById(R.id.cardContainer);
-//
-//      // Crea y agrega tus CardViews
-//      for (int i = 0; i < 7; i++) { // Ejemplo: crea 7 CardViews
-//         CardView cardView = new CardView(requireContext());
-//
-//         LinearLayout.LayoutParams cardLayoutParams = new LinearLayout.LayoutParams(
-//             getResources().getDimensionPixelSize(R.dimen.card_width),
-//             getResources().getDimensionPixelSize(R.dimen.card_height)
-//         );
-//
-//         // Agrega márgenes izquierdo y derecho al CardView para separarlos
-//         cardLayoutParams.setMarginStart(getResources().getDimensionPixelSize(R.dimen.card_margin));
-//         cardLayoutParams.setMarginEnd(getResources().getDimensionPixelSize(R.dimen.card_margin));
-//
-//         cardView.setLayoutParams(cardLayoutParams);
-//
-//         // Configura el contenido de tu CardView (puedes personalizarlo según tus necesidades)
-//         LayoutInflater inflater = LayoutInflater.from(requireContext());
-//         View cardContent = inflater.inflate(R.layout.cardview, null);
-//         cardView.addView(cardContent);
-//
-//         // Agrega el CardView al LinearLayout
-//         cardContainer.addView(cardView);
-//      }
-//   }
+   private void handleDatabaseError(DatabaseError error) {
+      // Manejo de errores en caso de fallo en la lectura
+   }
 
+   private void initializeViews() {
+      recyclerView = binding.metodosPagoList;
+      database = FirebaseDatabase.getInstance().getReference("metodosPago");
+      list = new ArrayList<>();
+      myAdapter = new MyAdapterMetodoPago(requireActivity(),list);
+      recyclerView.setAdapter(myAdapter);
+   }
+
+   private void setupRecyclerView() {
+      recyclerView.setHasFixedSize(true);
+      recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false));
+
+   }
 
    private void setupUI() {
       ImageSlider imageSlider = binding.imageSlider;
-
       HomeViewModel viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
       List<SlideModel> slideModelsList = viewModel.getSlideModelsList();
-
-      // Configura el ImageSlider
       imageSlider.setImageList(slideModelsList);
+   }
+
+   private void setupDialogButton() {
+      binding.btnDialog.setOnClickListener(v -> {
+         SweetAlertDialog dialog = new SweetAlertDialog(requireActivity(), SweetAlertDialog.SUCCESS_TYPE);
+         dialog.setTitleText("Exitoso");
+         dialog.show();
+      });
+   }
+
+   private void setupRecyclerViewButton() {
+      binding.btnIrReciclerView.setOnClickListener(v -> startActivity(new Intent(requireContext(), sedelist.class)));
    }
 
    @Override
