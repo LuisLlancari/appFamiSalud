@@ -23,4 +23,11 @@
     <string name="perfil">Perfil</string>
     <string name="farmacia">Farmacia</string>
     <string name="profile_image">imagen de perfil\n</string>
+    <string name="none">none:</string>
+    <string name="cci">CCI:</string>
+    <string name="n_mero_de_cuenta">Número de cuenta:</string>
+    <string name="metodo">Metodo:</string>
+    <string name="esto_es_un_texto">Esto es un texto</string>
+    <string name="simple_bot_n">Simple Botón</string>
+    <string name="simple_bot_n_secudario">simple botón secudario</string>
 </resources>

@@ -46,7 +46,7 @@ public class ProfileFragment extends Fragment {
       viewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
       setupSignOutButton();
       setupFirebase();
-//      setupProfileImageUpload();
+      //setupProfileImageUpload();
       setupProfileInfo();
       deleteAccount();
 
@@ -69,9 +69,6 @@ public class ProfileFragment extends Fragment {
 
    }
 
-//   private void setupProfileImageUpload() {
-//
-//   }
 
    private void setupSignOutButton() {
       binding.btCerrarSession.setOnClickListener(v -> {
@@ -90,8 +87,6 @@ public class ProfileFragment extends Fragment {
       }
    }
 
-//   private void loadProfileInfoFromFirebase() {
-//   }
 
    private void setupFirebaseStorage() {
       FirebaseStorage storage = FirebaseStorage.getInstance();

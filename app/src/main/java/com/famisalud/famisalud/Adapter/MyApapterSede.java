@@ -12,15 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.famisalud.famisalud.R;
 import com.famisalud.famisalud.Model.SedeClass;
+import com.famisalud.famisalud.ui.home.HomeFragment;
 
 import java.util.ArrayList;
 
 public class MyApapterSede extends RecyclerView.Adapter<MyApapterSede.MyViewHolder> {
 
-   Context context;
+   HomeFragment context;
    ArrayList<SedeClass> list;
 
-   public MyApapterSede(Context context, ArrayList<SedeClass> list) {
+   public MyApapterSede(HomeFragment context, ArrayList<SedeClass> list) {
       this.context = context;
       this.list = list;
    }
@@ -43,7 +44,7 @@ public class MyApapterSede extends RecyclerView.Adapter<MyApapterSede.MyViewHold
    @NonNull
    @Override
    public MyApapterSede.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-      View v = LayoutInflater.from(context).inflate(R.layout.itemsede, parent, false);
+      View v = LayoutInflater.from(context.requireContext()).inflate(R.layout.itemsede, parent, false);
       return new MyViewHolder(v);
    }
 

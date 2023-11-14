@@ -1,6 +1,5 @@
 package com.famisalud.famisalud.ui.home;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,9 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.famisalud.famisalud.Adapter.MyAdapterMetodoPago;
+import com.famisalud.famisalud.Adapter.MyApapterSede;
 import com.famisalud.famisalud.Model.MetodoPagoClass;
+import com.famisalud.famisalud.Model.SedeClass;
 import com.famisalud.famisalud.databinding.FragmentHomeBinding;
-import com.famisalud.famisalud.sedelist;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,15 +27,18 @@ import com.google.firebase.database.ValueEventListener;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
    private FragmentHomeBinding binding;
-   private RecyclerView recyclerView;
-   private DatabaseReference database;
+   private RecyclerView recyclerView, recyclerViewSede;
+   private DatabaseReference databaseMetodoPago, databaseSede;
    private MyAdapterMetodoPago myAdapter;
+   private MyApapterSede myAdapterSede;
    private ArrayList<MetodoPagoClass> list;
+   private ArrayList<SedeClass> listSede;
 
    @Override
    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -51,11 +54,17 @@ public class HomeFragment extends Fragment {
       setupDialogButton();
       setupRecyclerViewButton();
 
-      database.addValueEventListener(new ValueEventListener() {
+//      val bottomsheet = BottomSheetFragment();
+//      BottomSheetFragment bottomSheet = new BottomSheetFragment();
+
+
+//      binding.btnShow.setOnClickListener(v -> bottomSheet.show(requireActivity().getSupportFragmentManager(), "BottomSheetDialog"));
+
+      databaseMetodoPago.addValueEventListener(new ValueEventListener() {
          @Override
          public void onDataChange(@NonNull DataSnapshot snapshot) {
             list.clear();
-            for(DataSnapshot dataSnapshot:snapshot.getChildren()){
+            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                MetodoPagoClass metodoPagoClass = dataSnapshot.getValue(MetodoPagoClass.class);
                list.add(metodoPagoClass);
             }
@@ -68,6 +77,22 @@ public class HomeFragment extends Fragment {
             handleDatabaseError(error);
          }
       });
+      databaseSede.addValueEventListener(new ValueEventListener() {
+         @Override
+         public void onDataChange(@NonNull DataSnapshot snapshot) {
+            listSede.clear();
+            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+               SedeClass sedeClass = dataSnapshot.getValue(SedeClass.class);
+               listSede.add(sedeClass);
+            }
+            myAdapterSede.notifyDataSetChanged();
+         }
+
+         @Override
+         public void onCancelled(@NonNull DatabaseError error) {
+
+         }
+      });
 
       return root;
    }
@@ -78,15 +103,24 @@ public class HomeFragment extends Fragment {
 
    private void initializeViews() {
       recyclerView = binding.metodosPagoList;
-      database = FirebaseDatabase.getInstance().getReference("metodosPago");
+      databaseMetodoPago = FirebaseDatabase.getInstance().getReference("metodosPago");
       list = new ArrayList<>();
-      myAdapter = new MyAdapterMetodoPago(requireActivity(),list);
+      myAdapter = new MyAdapterMetodoPago(requireActivity(), list);
       recyclerView.setAdapter(myAdapter);
+
+      recyclerViewSede = binding.sedelist;
+      databaseSede = FirebaseDatabase.getInstance().getReference("sedes");
+      listSede = new ArrayList<>();
+      myAdapterSede = new MyApapterSede(this, listSede);
+      recyclerViewSede.setAdapter(myAdapterSede);
    }
 
    private void setupRecyclerView() {
       recyclerView.setHasFixedSize(true);
-      recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false));
+      recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
+
+      recyclerViewSede.setHasFixedSize(true);
+      recyclerViewSede.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
 
    }
 
@@ -106,7 +140,7 @@ public class HomeFragment extends Fragment {
    }
 
    private void setupRecyclerViewButton() {
-      binding.btnIrReciclerView.setOnClickListener(v -> startActivity(new Intent(requireContext(), sedelist.class)));
+
    }
 
    @Override
