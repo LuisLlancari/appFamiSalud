@@ -13,10 +13,10 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.famisalud.famisalud.Especialidad;
 import com.famisalud.famisalud.Famicard;
-import com.famisalud.famisalud.Model.SedeClass;
+
 import com.famisalud.famisalud.Servicios;
 import com.famisalud.famisalud.databinding.FragmentDashboardBinding;
-import com.famisalud.famisalud.sedelist;
+
 import com.famisalud.famisalud.ui.drugstore.DrugstoreFragment;
 
 public class DashboardFragment extends Fragment {
@@ -33,13 +33,6 @@ public class DashboardFragment extends Fragment {
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        binding.catsede.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), sedelist.class);
-                startActivity(intent);
-            }
-        });
 
         binding.catservice.setOnClickListener(new View.OnClickListener() {
             @Override
