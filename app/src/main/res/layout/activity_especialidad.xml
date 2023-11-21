@@ -44,7 +44,7 @@
                     app:layout_constraintVertical_bias="0.097" />
 
                 <ImageView
-                    android:id="@+id/imageView7"
+                    android:id="@+id/ivServicios"
                     android:layout_width="340dp"
                     android:layout_height="180dp"
                     android:layout_marginStart="11dp"
@@ -58,7 +58,7 @@
                     app:layout_constraintVertical_bias="0.141" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/tvNombreServicio"
                     android:layout_width="203dp"
                     android:layout_height="33dp"
                     android:layout_marginStart="16dp"
@@ -70,7 +70,7 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView6"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView7"
+                    app:layout_constraintTop_toBottomOf="@+id/ivServicios"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
@@ -83,10 +83,10 @@
                     android:textSize="20dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView7"
+                    app:layout_constraintEnd_toEndOf="@+id/ivServicios"
                     app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toEndOf="@+id/textView2"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView7"
+                    app:layout_constraintStart_toEndOf="@+id/tvNombreServicio"
+                    app:layout_constraintTop_toBottomOf="@+id/ivServicios"
                     app:layout_constraintVertical_bias="0.703" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -139,10 +139,10 @@ public class Login extends AppCompatActivity {
    private void loadUI() {
       etContrasena = findViewById(R.id.passwordEditText);
       etUsuario = findViewById(R.id.usuarioEditText);
-      registrarse = findViewById(R.id.tvRegistrarse);
+      //registrarse = findViewById(R.id.tvRegistrarse);
       btIniciarSesion = findViewById(R.id.iniciarSessionButtom);
 //     btRegistrarse = findViewById(R.id.registrarseButtom);
-      registraseActivity = findViewById(R.id.tvRegistrarse);
+      registraseActivity = findViewById(R.id.tvRegistrarseActivity);
    }
 
    private void showToast(String message) {
