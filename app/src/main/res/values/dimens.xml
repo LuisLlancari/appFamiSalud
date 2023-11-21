@@ -6,4 +6,5 @@
     <dimen name="card_height">150dp</dimen>
     <dimen name="card_margin">10dp</dimen>
     <dimen name="spacing_between_cardviews">30dp</dimen>
+    <dimen name="_5dp">5dp</dimen>
 </resources>

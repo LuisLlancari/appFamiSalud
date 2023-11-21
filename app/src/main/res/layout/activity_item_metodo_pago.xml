@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:layout_width="300dp"
     android:layout_height="wrap_content"
-    android:layout_marginRight="5dp"
     android:layout_marginLeft="5dp"
-    android:elevation="18dp"
+    android:layout_marginRight="5dp"
     android:layout_marginBottom="20dp"
-    app:cardCornerRadius="8dp"
-    >
+    android:elevation="18dp"
+    app:cardCornerRadius="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,6 +22,7 @@
             android:id="@+id/ivMetodoPagoImage"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:contentDescription="@string/perfil"
             android:scaleType="centerInside" />
         <!--        android:scaleType="centerInside"-->
         <!--        android:scaleType="centerCrop"-->
@@ -37,7 +37,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Metodo:"
+                android:text="@string/metodo"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -46,12 +46,13 @@
                 android:id="@+id/tvbancoMetodoPago"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="none:"
+                android:layout_marginStart="@dimen/_5dp"
+                android:text="@string/none"
                 android:textColor="@color/black"
 
                 android:textSize="14sp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,21 +62,24 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Número de cuenta:"
+                android:text="@string/n_mero_de_cuenta"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvnumeroMetodoPago"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="none:"
-                android:textColor="@color/black"
 
-                android:textSize="14sp" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvnumeroMetodoPago"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5dp"
+            android:text="@string/none"
+            android:textColor="@color/black"
+
+            android:textSize="14sp" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -85,7 +89,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CCI:"
+                android:text="@string/cci"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -94,8 +98,8 @@
                 android:id="@+id/tvcciMetodoPago"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="none:"
+                android:layout_marginStart="@dimen/_5dp"
+                android:text="@string/none"
                 android:textColor="@color/black"
 
                 android:textSize="14sp" />
