@@ -1,154 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    android:background="@color/azul_famisalud_primario"
-    android:layout_marginBottom="45dp">
+    tools:context=".MainActivity">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu"/>
+
 
     <TextView
-        android:id="@+id/titulocat"
+        android:id="@+id/textDashboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_gravity="top|center"
-        android:textColor="@color/white"
-        android:text="Categorias"
-        android:textAlignment="center"
-        android:textSize="45dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="Ejemplo"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="30sp" />
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
+        android:orientation="vertical"
+        android:gravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:gravity="center">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/catsede"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="25dp"
-                app:cardBackgroundColor="#F2E29C"
-                app:cardCornerRadius="15dp">
+                android:orientation="vertical"
+                android:gravity="center">
 
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@drawable/hospital"
-                    android:contentDescription="Imagen de la categoría 1" />
-
-                <TextView
+                <ImageButton
+                    android:id="@+id/imgPrimero"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nuestras sedes"
-                    android:textSize="25dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="50dp"/>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/catservice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="25dp"
-                app:cardBackgroundColor="#F2E29C"
-                app:cardCornerRadius="15dp">
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@drawable/servicios"
-                    android:contentDescription="Imagen de la categoría 2" />
+                    android:src="@drawable/medicinal" />
 
                 <TextView
+                    android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Servicios"
-                    android:textSize="25dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="50dp"/>
+                    android:text="Este es un ejemplo 1" />
+            </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+            <!-- Espacio en blanco horizontal entre las imágenes -->
+            <View
+                android:layout_width="16dp"
+                android:layout_height="match_parent" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/catespecialidad"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="25dp"
-                app:cardBackgroundColor="#F2E29C"
-                app:cardCornerRadius="15dp">
+                android:orientation="vertical"
+                android:gravity="center">
 
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@drawable/especialidades"
-                    android:contentDescription="Imagen de la categoría 2" />
+                <ImageButton
+                    android:id="@+id/imgSegundo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/medicinal" />
 
                 <TextView
+                    android:id="@+id/tvNombreServicio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Especialidades"
-                    android:textSize="25dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="50dp"/>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/catfarmacia"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="25dp"
-                app:cardBackgroundColor="#F2E29C"
-                app:cardCornerRadius="15dp">
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:contentDescription="Imagen de la categoría 2"
-                    android:src="@drawable/farmacia" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Farmacia"
-                    android:textSize="25dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="50dp"/>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/catfamicard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="25dp"
-                app:cardBackgroundColor="#F2E29C"
-                app:cardCornerRadius="15dp">
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@drawable/famicard"
-                    android:contentDescription="Imagen de la categoría 2" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Famicard"
-                    android:textSize="25dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="50dp"/>
-
-            </androidx.cardview.widget.CardView>
+                    android:text="Este es un ejemplo 2" />
+            </LinearLayout>
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+
+        <!-- Espacio en blanco vertical entre las filas de imágenes -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/imgTercero"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/medicinal" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Este es un ejemplo 3" />
+            </LinearLayout>
+
+            <!-- Espacio en blanco horizontal entre las imágenes -->
+            <View
+                android:layout_width="16dp"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/imgCuarto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/medicinal" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Este es un ejemplo 4" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

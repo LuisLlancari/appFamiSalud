@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,8 +21,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
 
-   private TextView registraseActivity;
-   private TextInputEditText etUsuario, etContrasena;
+   private TextView registraseActivity, registrarse;
+   private EditText etUsuario, etContrasena;
    private Button btIniciarSesion;
 //   private Button btRegistrarse;
 
@@ -40,8 +41,13 @@ public class Login extends AppCompatActivity {
       bundle.putString("message", "Integración de Firebase completa");
       analytics.logEvent("InitScreen", bundle);
 
-      registraseActivity.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Register.class)));
-
+      //registrarse.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Register.class)));
+      registrarse.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+            startActivity(new Intent(getApplicationContext(), Register.class));
+         }
+      });
       setup();
    }
 
@@ -133,10 +139,9 @@ public class Login extends AppCompatActivity {
    private void loadUI() {
       etContrasena = findViewById(R.id.passwordEditText);
       etUsuario = findViewById(R.id.usuarioEditText);
-
+      //registrarse = findViewById(R.id.tvRegistrarse);
       btIniciarSesion = findViewById(R.id.iniciarSessionButtom);
-//      btRegistrarse = findViewById(R.id.registrarseButtom);
-
+//     btRegistrarse = findViewById(R.id.registrarseButtom);
       registraseActivity = findViewById(R.id.tvRegistrarseActivity);
    }
 
