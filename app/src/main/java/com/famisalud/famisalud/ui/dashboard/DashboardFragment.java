@@ -34,27 +34,27 @@ public class DashboardFragment extends Fragment {
         View root = binding.getRoot();
 
 
-        binding.catservice.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), Servicios.class);
-            startActivity(intent);
-        });
+//        binding.catservice.setOnClickListener(v -> {
+//            Intent intent = new Intent(getContext(), Servicios.class);
+//            startActivity(intent);
+//        });
+//
+//        binding.catespecialidad.setOnClickListener(v -> {
+//            Intent intent = new Intent(getContext(), Especialidad.class);
+//            startActivity(intent);
+//        });
+//
+//        binding.catfarmacia.setOnClickListener(v -> {
+//            Intent intent = new Intent(getContext(), DrugstoreFragment.class);
+//            startActivity(intent);
+//        });
+//
+//        binding.catfamicard.setOnClickListener(v -> {
+//            Intent intent = new Intent(getContext(), Famicard.class);
+//            startActivity(intent);
+//        });
 
-        binding.catespecialidad.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), Especialidad.class);
-            startActivity(intent);
-        });
-
-        binding.catfarmacia.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), DrugstoreFragment.class);
-            startActivity(intent);
-        });
-
-        binding.catfamicard.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), Famicard.class);
-            startActivity(intent);
-        });
-
-        final TextView textView = binding.titulocat;
+//        final TextView textView = binding.titulocat;
         //dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }

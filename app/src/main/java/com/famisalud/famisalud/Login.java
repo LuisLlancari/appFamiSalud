@@ -42,12 +42,7 @@ public class Login extends AppCompatActivity {
       analytics.logEvent("InitScreen", bundle);
 
       //registrarse.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Register.class)));
-      registrarse.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View v) {
-            startActivity(new Intent(getApplicationContext(), Register.class));
-         }
-      });
+      registrarse.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Register.class)));
       setup();
    }
 
@@ -139,9 +134,9 @@ public class Login extends AppCompatActivity {
    private void loadUI() {
       etContrasena = findViewById(R.id.passwordEditText);
       etUsuario = findViewById(R.id.usuarioEditText);
-      //registrarse = findViewById(R.id.tvRegistrarse);
+      registrarse = findViewById(R.id.tvRegistrarseActivity);
       btIniciarSesion = findViewById(R.id.iniciarSessionButtom);
-//     btRegistrarse = findViewById(R.id.registrarseButtom);
+//     btRegistrarse = findViewById(R.id.tvRegistrarseActivity);
       registraseActivity = findViewById(R.id.tvRegistrarseActivity);
    }
 
