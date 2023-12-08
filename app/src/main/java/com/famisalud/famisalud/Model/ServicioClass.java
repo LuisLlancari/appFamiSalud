@@ -2,7 +2,8 @@ package com.famisalud.famisalud.Model;
 
 public class ServicioClass {
 
-    String servicio, fecha_creacion, precio;
+    Long precio;
+    String servicio, fecha_creacion,url;
 
 
     public String getServicio() {
@@ -12,8 +13,11 @@ public class ServicioClass {
     public String getFecha_creacion() {
         return fecha_creacion;
     }
-    public String getPrecio() {
+    public Long getPrecio() {
         return precio;
+    }
+    public String getUrl() {
+        return url;
     }
 
 

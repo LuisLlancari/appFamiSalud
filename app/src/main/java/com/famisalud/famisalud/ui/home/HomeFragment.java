@@ -1,5 +1,6 @@
 package com.famisalud.famisalud.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,8 @@ import com.famisalud.famisalud.Adapter.MyAdapterMetodoPago;
 import com.famisalud.famisalud.Adapter.MyApapterSede;
 import com.famisalud.famisalud.Model.MetodoPagoClass;
 import com.famisalud.famisalud.Model.SedeClass;
+import com.famisalud.famisalud.Model.ServicioClass;
+import com.famisalud.famisalud.Servicios;
 import com.famisalud.famisalud.databinding.FragmentHomeBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -77,6 +80,7 @@ public class HomeFragment extends Fragment {
             handleDatabaseError(error);
          }
       });
+
       databaseSede.addValueEventListener(new ValueEventListener() {
          @Override
          public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -133,9 +137,16 @@ public class HomeFragment extends Fragment {
 
    private void setupDialogButton() {
       binding.btnDialog.setOnClickListener(v -> {
-         SweetAlertDialog dialog = new SweetAlertDialog(requireActivity(), SweetAlertDialog.SUCCESS_TYPE);
+         /*SweetAlertDialog dialog = new SweetAlertDialog(requireActivity(), SweetAlertDialog.SUCCESS_TYPE);
          dialog.setTitleText("Exitoso");
-         dialog.show();
+         dialog.show();*/
+
+         Intent intent = new Intent(requireActivity(), Servicios.class);
+
+         // Iniciar la actividad con el segundo layout
+         startActivity(intent);
+
+
       });
    }
 

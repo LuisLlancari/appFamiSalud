@@ -4,11 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.famisalud.famisalud.Model.ServicioClass;
 import com.famisalud.famisalud.R;
 import com.famisalud.famisalud.Servicios;
@@ -28,13 +30,14 @@ public class MyAdapterServicios extends RecyclerView.Adapter<MyAdapterServicios.
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         TextView servicio, fecha_creacion, precio;
 
+        ImageView urlImage;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             servicio = itemView.findViewById(R.id.tvNombreServicio);
             fecha_creacion = itemView.findViewById(R.id.tvFechaServicio);
             precio = itemView.findViewById(R.id.tvprecioServicio);
-
+            urlImage = itemView.findViewById(R.id.ivServicios);
 
         }
     }
@@ -51,7 +54,17 @@ public class MyAdapterServicios extends RecyclerView.Adapter<MyAdapterServicios.
         ServicioClass vservicio = list.get(position);
         holder.servicio.setText(vservicio.getServicio());
         holder.fecha_creacion.setText(vservicio.getFecha_creacion());
-        holder.precio.setText(vservicio.getPrecio());
+        holder.precio.setText(vservicio.getPrecio().toString());
+
+
+        // Carga la imagen usando Glide
+        Glide.with(context)
+                .load(vservicio.getUrl()) // URL de la imagen
+                .placeholder(com.denzcoskun.imageslider.R.drawable.default_placeholder) // Imagen de marcador de posición
+                .error(R.drawable.image_error) // Imagen en caso de error
+                .into(holder.urlImage); // ImageView donde se mostrará la imagen
+
+
     }
 
     @Override

@@ -34,10 +34,10 @@ public class DashboardFragment extends Fragment {
         View root = binding.getRoot();
 
 
-//        binding.catservice.setOnClickListener(v -> {
-//            Intent intent = new Intent(getContext(), Servicios.class);
-//            startActivity(intent);
-//        });
+/*      binding.Servicios.setOnClickListener(v -> {
+       Intent intent = new Intent(getContext(), Servicios.class);
+          startActivity(intent);
+     });*/
 //
 //        binding.catespecialidad.setOnClickListener(v -> {
 //            Intent intent = new Intent(getContext(), Especialidad.class);
