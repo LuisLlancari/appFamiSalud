@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/azul_famisalud_primario"
     tools:context=".Especialidad">
     <!-- dsadad dasd-->
     <ScrollView
@@ -22,73 +23,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Especialidad"
+                android:textColor="@color/white"
                 android:textAlignment="center"
                 android:textSize="40dp"
                 android:textStyle="bold" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/especialidadList"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
-
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="360dp"
-                    android:layout_height="279dp"
-                    android:src="@drawable/style_square_round"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.461"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.097" />
-
-                <ImageView
-                    android:id="@+id/ivServicios"
-                    android:layout_width="340dp"
-                    android:layout_height="180dp"
-                    android:layout_marginStart="11dp"
-                    android:layout_marginEnd="9dp"
-                    android:src="@drawable/style_square_round2"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView6"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/imageView6"
-                    app:layout_constraintTop_toTopOf="@+id/imageView6"
-                    app:layout_constraintVertical_bias="0.141" />
-
-                <TextView
-                    android:id="@+id/tvNombreServicio"
-                    android:layout_width="203dp"
-                    android:layout_height="33dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="28dp"
-                    android:layout_marginBottom="24dp"
-                    android:text="Nombre de servicio"
-                    android:textColor="@color/purple"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ivServicios"
-                    app:layout_constraintVertical_bias="0.0" />
-
-                <TextView
-                    android:layout_width="89dp"
-                    android:layout_height="30dp"
-                    android:layout_marginTop="28dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="S/ 00.00"
-                    android:textColor="@color/purple"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-                    app:layout_constraintEnd_toEndOf="@+id/ivServicios"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toEndOf="@+id/tvNombreServicio"
-                    app:layout_constraintTop_toBottomOf="@+id/ivServicios"
-                    app:layout_constraintVertical_bias="0.703" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_height="match_parent"/>
 
         </LinearLayout>
 

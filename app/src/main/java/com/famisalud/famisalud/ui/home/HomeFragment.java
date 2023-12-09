@@ -17,6 +17,7 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.famisalud.famisalud.Adapter.MyAdapterMetodoPago;
 import com.famisalud.famisalud.Adapter.MyApapterSede;
+import com.famisalud.famisalud.Especialidad;
 import com.famisalud.famisalud.Model.MetodoPagoClass;
 import com.famisalud.famisalud.Model.SedeClass;
 import com.famisalud.famisalud.Model.ServicioClass;
@@ -150,7 +151,17 @@ public class HomeFragment extends Fragment {
       });
    }
 
+
+
    private void setupRecyclerViewButton() {
+      binding.btnShow.setOnClickListener(v -> {
+
+         Intent intent = new Intent(requireActivity(), Especialidad.class);
+
+         startActivity(intent);
+
+
+      });
 
    }
 

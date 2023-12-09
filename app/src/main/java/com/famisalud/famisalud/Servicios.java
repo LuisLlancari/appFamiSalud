@@ -67,11 +67,6 @@ public class Servicios extends AppCompatActivity {
         myAdapter = new MyAdapterServicios(this, list);
         recyclerView.setAdapter(myAdapter);
 
-
-
-
-
-
     }
 
     private void setupRecyclerView(){

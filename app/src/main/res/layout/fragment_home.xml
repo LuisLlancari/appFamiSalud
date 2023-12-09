@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:text="Dialog"
+                android:text="Servicio"
                 android:textAlignment="center"
                 app:layout_constraintTop_toBottomOf="@+id/btnIrReciclerView"
                 tools:layout_editor_absoluteX="2dp" />
@@ -114,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:text="Show"
+                android:text="Especialidad"
                 android:textAlignment="center"
                 tools:layout_editor_absoluteX="2dp" />
         </LinearLayout>

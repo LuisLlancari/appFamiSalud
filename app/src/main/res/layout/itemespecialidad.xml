@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginRight="5dp"
     android:layout_marginLeft="5dp"
@@ -23,9 +23,9 @@
         android:paddingBottom="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="5dp">
 
             <ImageView
                 android:id="@+id/imageView6"
@@ -40,7 +40,7 @@
                 app:layout_constraintVertical_bias="0.097" />
 
             <ImageView
-                android:id="@+id/ivServicios"
+                android:id="@+id/ivEspecialidad"
                 android:layout_width="340dp"
                 android:layout_height="180dp"
                 android:layout_marginStart="11dp"
@@ -54,23 +54,23 @@
                 app:layout_constraintVertical_bias="0.141" />
 
             <TextView
-                android:id="@+id/tvNombreServicio"
-                android:layout_width="215dp"
-                android:layout_height="54dp"
+                android:id="@+id/tvNombreEspecialidad"
+                android:layout_width="231dp"
+                android:layout_height="57dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="28dp"
                 android:layout_marginBottom="24dp"
-                android:text="Nombre de servicio"
+                android:text="Nombre de Especialidad"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView6"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ivServicios"
+                app:layout_constraintTop_toBottomOf="@+id/ivEspecialidad"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/tvprecioServicio"
+                android:id="@+id/tvprecioEspecialidad"
                 android:layout_width="66dp"
                 android:layout_height="26dp"
                 android:layout_marginTop="28dp"
@@ -80,10 +80,10 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-                app:layout_constraintEnd_toEndOf="@+id/ivServicios"
+                app:layout_constraintEnd_toEndOf="@+id/ivEspecialidad"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/tvNombreServicio"
-                app:layout_constraintTop_toBottomOf="@+id/ivServicios"
+                app:layout_constraintStart_toEndOf="@+id/tvNombreEspecialidad"
+                app:layout_constraintTop_toBottomOf="@+id/ivEspecialidad"
                 app:layout_constraintVertical_bias="0.064" />
 
             <TextView
@@ -95,23 +95,11 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-                app:layout_constraintEnd_toStartOf="@+id/tvprecioServicio"
+                app:layout_constraintEnd_toStartOf="@+id/tvprecioEspecialidad"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/imageView6"
-                app:layout_constraintTop_toBottomOf="@+id/ivServicios" />
+                app:layout_constraintTop_toBottomOf="@+id/ivEspecialidad" />
 
-            <TextView
-                android:id="@+id/tvFechaServicio"
-                android:layout_width="90dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="194dp"
-                android:text="fecha"
-                app:layout_constraintBottom_toTopOf="@+id/tvprecioServicio"
-                app:layout_constraintEnd_toEndOf="@+id/imageView6"
-                app:layout_constraintHorizontal_bias="0.966"
-                app:layout_constraintStart_toStartOf="@+id/imageView6"
-                app:layout_constraintTop_toTopOf="@+id/imageView6"
-                app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
